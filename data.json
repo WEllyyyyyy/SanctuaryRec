@@ -14,14 +14,14 @@
   },
   {
    "id": "a2",
-   "name": "Kai Mercer",
-   "genre": "R&B / Soul",
-   "tagline": "Smooth, warm and wide open",
-   "bio": "Kai blends classic soul vocals with modern production. Replace this text with his real story.",
-   "track": "Untitled snippet",
+   "name": "Mia Herak",
+   "genre": "Gospel",
+   "tagline": "    \"For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God.\"  — Ephesians 2:8-9",
+   "bio": "Mia Herak is a powerful gospel singer whose incredibly strong and soulful vocals captivate audiences with every performance. Blending passionate melodies with heartfelt faith, Mia's music centers on God, hope, and sharing the message of Jesus through song.",
+   "track": "Who Is",
    "photos": [],
-   "profile": "",
-   "audio": "",
+   "profile": "media/a2-mw0dtyyg0r8.jpg",
+   "audio": "media/a2-mw0dtu9d3wc.m4a",
    "color": "#7a5cf0"
   },
   {
@@ -63,7 +63,9 @@
  ],
  "sizes": {
   "media/a1-mw0dhex0nlj.jpg": 160340,
-  "media/a1-mw0ds890y2h.m4a": 487193
+  "media/a1-mw0ds890y2h.m4a": 487193,
+  "media/a2-mw0dtyyg0r8.jpg": 240627,
+  "media/a2-mw0dtu9d3wc.m4a": 487094
  },
  "theme": null
 }
