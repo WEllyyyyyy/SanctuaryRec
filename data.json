@@ -84,7 +84,14 @@
    "tagline": "    \"Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.\"  — Psalm 46:10",
    "bio": "Chloe Cooper captivates listeners with her powerful vocals and uplifting Christian pop sound, blending heartfelt worship with contemporary melodies to share messages of hope and the love of Jesus.",
    "track": "Be Still",
-   "photos": [],
+   "photos": [
+    "media/a5-mw0ecubem3d.jpg",
+    "media/a5-mw0ecuikwk9.jpg",
+    "media/a5-mw0ecur4mku.jpg",
+    "media/a5-mw0ecuxx6i8.jpg",
+    "media/a5-mw0ecv56iyf.jpg",
+    "media/a5-mw0ecvc2hjv.jpg"
+   ],
    "profile": "media/a5-mw0e3evjjpn.jpg",
    "audio": "media/a5-mw0e30s08ej.m4a",
    "color": "#2b8fd6"
@@ -127,7 +134,13 @@
   "media/a4-mw0e14dkhc2.jpg": 329391,
   "media/a4-mw0e01x1tls.m4a": 487094,
   "media/a5-mw0e3evjjpn.jpg": 274436,
-  "media/a5-mw0e30s08ej.m4a": 487300
+  "media/a5-mw0e30s08ej.m4a": 487300,
+  "media/a5-mw0ecubem3d.jpg": 274436,
+  "media/a5-mw0ecuikwk9.jpg": 207190,
+  "media/a5-mw0ecur4mku.jpg": 256384,
+  "media/a5-mw0ecuxx6i8.jpg": 273591,
+  "media/a5-mw0ecv56iyf.jpg": 298826,
+  "media/a5-mw0ecvc2hjv.jpg": 220267
  },
  "theme": null
 }
