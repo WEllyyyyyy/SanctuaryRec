@@ -1,0 +1,69 @@
+{
+ "artists": [
+  {
+   "id": "a1",
+   "name": "Naomi Siolo",
+   "genre": "Pop",
+   "tagline": "    \"Trust in the Lord with all your heart, and do not lean on your own understanding.\"  — Proverbs 3:5-6",
+   "bio": "Naomi Siolo is a solo Christian pop singer and songwriter. Starting by sharing original songs online, Naomi blends uplifting melodies with heartfelt lyrics that reflect her faith.\n\nWhat she does: writes all of her music independently, creating inspiring Christian pop songs that encourage hope, worship, and a deeper connection with God.",
+   "track": "Trust",
+   "photos": [],
+   "profile": "media/a1-mw0dhex0nlj.jpg",
+   "audio": "media/a1-mw0dh8iavb0.m4a",
+   "color": "#e0457b"
+  },
+  {
+   "id": "a2",
+   "name": "Kai Mercer",
+   "genre": "R&B / Soul",
+   "tagline": "Smooth, warm and wide open",
+   "bio": "Kai blends classic soul vocals with modern production. Replace this text with his real story.",
+   "track": "Untitled snippet",
+   "photos": [],
+   "profile": "",
+   "audio": "",
+   "color": "#7a5cf0"
+  },
+  {
+   "id": "a3",
+   "name": "Juniper Lane",
+   "genre": "Folk",
+   "tagline": "Quiet songs, big stories",
+   "bio": "Juniper pairs fingerpicked guitar with storytelling lyrics. Replace this text with her real story.",
+   "track": "Untitled snippet",
+   "photos": [],
+   "profile": "",
+   "audio": "",
+   "color": "#2e9b6a"
+  },
+  {
+   "id": "a4",
+   "name": "Dex Okoro",
+   "genre": "Hip-Hop",
+   "tagline": "Sharp bars, sharper beats",
+   "bio": "Dex brings razor-edge wordplay over punchy, sample-driven beats. Replace this text with his real story.",
+   "track": "Untitled snippet",
+   "photos": [],
+   "profile": "",
+   "audio": "",
+   "color": "#e08a2e"
+  },
+  {
+   "id": "a5",
+   "name": "Luna Vale",
+   "genre": "Electronic",
+   "tagline": "Soundscapes for the after-hours",
+   "bio": "Luna crafts lush synth-led tracks that move between club and cinema. Replace this text with her real story.",
+   "track": "Untitled snippet",
+   "photos": [],
+   "profile": "",
+   "audio": "",
+   "color": "#2b8fd6"
+  }
+ ],
+ "sizes": {
+  "media/a1-mw0dhex0nlj.jpg": 160340,
+  "media/a1-mw0dh8iavb0.m4a": 487094
+ },
+ "theme": null
+}
