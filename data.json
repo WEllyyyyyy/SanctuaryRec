@@ -72,7 +72,12 @@
    "tagline": "Funky Guitars",
    "bio": "Tadhg Jones reimagines contemporary guitar music through a laid-back fusion of lo-fi textures and jazz-inspired improvisation. Relaxing instrumental soundscapes that blend the warmth of jazz with nostalgic character.",
    "track": "Someone",
-   "photos": [],
+   "photos": [
+    "media/a4-mw0elamb7ws.jpg",
+    "media/a4-mw0elasp9u5.jpg",
+    "media/a4-mw0elayb9i4.jpg",
+    "media/a4-mw0elb4n9to.jpg"
+   ],
    "profile": "media/a4-mw0e14dkhc2.jpg",
    "audio": "media/a4-mw0e01x1tls.m4a",
    "color": "#e08a2e"
@@ -133,6 +138,10 @@
   "media/a3-mw0dw8zbfc5.m4a": 489723,
   "media/a4-mw0e14dkhc2.jpg": 329391,
   "media/a4-mw0e01x1tls.m4a": 487094,
+  "media/a4-mw0elamb7ws.jpg": 251928,
+  "media/a4-mw0elasp9u5.jpg": 330814,
+  "media/a4-mw0elayb9i4.jpg": 124615,
+  "media/a4-mw0elb4n9to.jpg": 329391,
   "media/a5-mw0e3evjjpn.jpg": 274436,
   "media/a5-mw0e30s08ej.m4a": 487300,
   "media/a5-mw0ecubem3d.jpg": 274436,
