@@ -26,14 +26,14 @@
   },
   {
    "id": "a3",
-   "name": "Juniper Lane",
-   "genre": "Folk",
-   "tagline": "Quiet songs, big stories",
-   "bio": "Juniper pairs fingerpicked guitar with storytelling lyrics. Replace this text with her real story.",
-   "track": "Untitled snippet",
+   "name": "Matilda Burns",
+   "genre": "Pop",
+   "tagline": "    \"What, then, shall we say in response to these things? If God is for us, who can be against us?\"  — Romans 8:31",
+   "bio": "Matilda Burns creates heartfelt slow-pop ballads that blend gentle melodies with powerful messages of faith. Through her reflective songwriting and emotional vocals, Matilda shares stories of hope, grace, and her relationship with Jesus.",
+   "track": "This Is Our King",
    "photos": [],
-   "profile": "",
-   "audio": "",
+   "profile": "media/a3-mw0dy6tw7kp.jpg",
+   "audio": "media/a3-mw0dw8zbfc5.m4a",
    "color": "#2e9b6a"
   },
   {
@@ -65,7 +65,9 @@
   "media/a1-mw0dhex0nlj.jpg": 160340,
   "media/a1-mw0ds890y2h.m4a": 487193,
   "media/a2-mw0dtyyg0r8.jpg": 240627,
-  "media/a2-mw0dtu9d3wc.m4a": 487094
+  "media/a2-mw0dtu9d3wc.m4a": 487094,
+  "media/a3-mw0dy6tw7kp.jpg": 131395,
+  "media/a3-mw0dw8zbfc5.m4a": 489723
  },
  "theme": null
 }
