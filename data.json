@@ -38,14 +38,14 @@
   },
   {
    "id": "a4",
-   "name": "Dex Okoro",
-   "genre": "Hip-Hop",
-   "tagline": "Sharp bars, sharper beats",
-   "bio": "Dex brings razor-edge wordplay over punchy, sample-driven beats. Replace this text with his real story.",
-   "track": "Untitled snippet",
+   "name": "Tadhg Jones",
+   "genre": "Lofi Jazz",
+   "tagline": "Funky Guitars",
+   "bio": "Tadhg Jones reimagines contemporary guitar music through a laid-back fusion of lo-fi textures and jazz-inspired improvisation. Relaxing instrumental soundscapes that blend the warmth of jazz with nostalgic character.",
+   "track": "Someone",
    "photos": [],
-   "profile": "",
-   "audio": "",
+   "profile": "media/a4-mw0e14dkhc2.jpg",
+   "audio": "media/a4-mw0e01x1tls.m4a",
    "color": "#e08a2e"
   },
   {
@@ -67,7 +67,9 @@
   "media/a2-mw0dtyyg0r8.jpg": 240627,
   "media/a2-mw0dtu9d3wc.m4a": 487094,
   "media/a3-mw0dy6tw7kp.jpg": 131395,
-  "media/a3-mw0dw8zbfc5.m4a": 489723
+  "media/a3-mw0dw8zbfc5.m4a": 489723,
+  "media/a4-mw0e14dkhc2.jpg": 329391,
+  "media/a4-mw0e01x1tls.m4a": 487094
  },
  "theme": null
 }
