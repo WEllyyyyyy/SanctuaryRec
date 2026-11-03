@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sanctuary Records</title>
+<style>
+:root{--bg:#0b0b12;--card:#15151f;--tx:#f4f3f8;--mut:#a09eb2;--ln:#262634;--ac:#e0457b;--ac2:#7a5cf0;color-scheme:dark;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=gold]{--bg:#0e0c08;--card:#1a160e;--tx:#f6efe0;--mut:#b3a88f;--ln:#32291a;--ac:#d9a441;--ac2:#8a5a1c}
+:root[data-theme=ocean]{--bg:#07121a;--card:#0f1d28;--tx:#eaf6fb;--mut:#8fb0c0;--ln:#1b3344;--ac:#2bb3d6;--ac2:#3b6fe0}
+:root[data-theme=forest]{--bg:#08120d;--card:#101e16;--tx:#eaf7ef;--mut:#92b3a0;--ln:#1d3527;--ac:#3ec486;--ac2:#1f7a56}
+:root[data-theme=ivory]{--bg:#f7f3ec;--card:#ffffff;--tx:#1c1a17;--mut:#75706a;--ln:#e5ddcf;--ac:#b8452f;--ac2:#d98a3d;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 "Helvetica Neue",Arial,sans-serif;transition:background .6s,color .6s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes zoomin{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ac) 60%,transparent)}100%{box-shadow:0 0 0 16px transparent}}
+#top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:calc(10px + env(safe-area-inset-top,0px)) 20px 10px;background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--ln)}
+.brand{display:flex;align-items:center;gap:10px;font:800 .9rem Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--tx);text-decoration:none}
+.brand svg{height:26px;color:var(--ac);transition:color .6s}
+.themes{display:flex;align-items:center;gap:10px}.themes small{color:var(--mut);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+#sws{display:flex;gap:8px}
+.sw{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;transition:transform .25s,border-color .25s}
+.sw:hover{transform:scale(1.2)}.sw.on{border-color:var(--tx);transform:scale(1.12)}
+#cc{width:28px;height:28px;border:0;padding:0;background:none;border-radius:50%;cursor:pointer}
+@media(max-width:520px){.themes small{display:none}.brand span{display:none}}
+.hero{position:relative;text-align:center;padding:70px 20px 50px;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(90px);opacity:.33;z-index:-1;animation:drift 14s ease-in-out infinite alternate;transition:background .6s}
+.hero::before{background:var(--ac);left:-90px;top:-70px}.hero::after{background:var(--ac2);right:-90px;bottom:-130px;animation-delay:-7s}
+.mark{height:56px;color:var(--ac);margin-bottom:10px;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--ac) 60%,transparent));animation:rise .9s backwards}
+.eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);animation:rise .9s .1s backwards}
+.hero h1{font:800 clamp(2.6rem,9vw,5.6rem)/1 Georgia,serif;margin:14px 0 18px;letter-spacing:-.02em;background:linear-gradient(120deg,var(--tx) 30%,var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1s .2s backwards}
+.hero p{color:var(--mut);max-width:520px;margin:0 auto;animation:rise 1s .3s backwards}
+main{max-width:1040px;margin:0 auto;padding:0 20px 40px}
+.sec{display:flex;align-items:center;gap:14px;margin:6px 0 22px;font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}.sec::after{content:"";flex:1;height:1px;background:var(--ln)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.card{position:relative;border-radius:22px;overflow:hidden;cursor:pointer;background:var(--card);border:1px solid var(--ln);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .5s}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 50px color-mix(in srgb,var(--ac) 35%,transparent);border-color:var(--ac)}
+.cover{aspect-ratio:3/4;background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.card:hover .cover{transform:scale(1.08)}
+.cover.ph{display:flex;align-items:center;justify-content:center;font:800 4.5rem Georgia,serif;color:#fff}
+.cb{position:absolute;left:0;right:0;bottom:0;padding:70px 18px 18px;background:linear-gradient(transparent,#000d);color:#fff}
+.cb h3{margin:8px 0 0;font:700 1.4rem Georgia,serif}
+.pill{display:inline-block;padding:2px 12px;border-radius:99px;font-size:.75rem;font-weight:700;background:var(--ac);color:#fff;transition:background .6s}
+.num{position:absolute;top:14px;left:16px;z-index:1;font:700 .8rem monospace;letter-spacing:.16em;color:#fff;text-shadow:0 1px 6px #000a}
+.go{position:absolute;top:12px;right:14px;z-index:1;width:34px;height:34px;border-radius:50%;background:#ffffff30;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-8px);transition:.4s}
+.card:hover .go{opacity:1;transform:none}
+.fresh .card{animation:rise .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*100ms)}
+.back{background:none;border:0;color:var(--mut);cursor:pointer;font-size:1rem;padding:16px 0;transition:transform .25s,color .25s}.back:hover{transform:translateX(-4px);color:var(--tx)}
+.pback{position:fixed;inset:0;z-index:-1;background-size:cover;background-position:center;filter:blur(70px) saturate(1.3);opacity:.3;transform:scale(1.2)}
+.prof{display:grid;grid-template-columns:1fr;gap:30px}
+@media(min-width:760px){.prof{grid-template-columns:340px 1fr}}
+.prof>div:first-child{overflow:hidden;border-radius:22px;align-self:start;box-shadow:0 24px 60px #0007}
+h2{font:800 clamp(2.2rem,6vw,3.4rem)/1.08 Georgia,serif;margin:12px 0 4px}
+.tl{color:var(--ac);font-style:italic;margin:0 0 16px;font-size:1.1rem}
+.snip{background:color-mix(in srgb,var(--card) 85%,transparent);border:1px solid var(--ln);border-radius:18px;padding:16px 18px;margin:22px 0;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.snip b{display:block;margin-bottom:12px}
+.pl{display:flex;align-items:center;gap:14px}
+.pp{width:50px;height:50px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font-size:1rem;cursor:pointer;flex:none;transition:transform .25s;box-shadow:0 6px 20px color-mix(in srgb,var(--ac) 45%,transparent)}.pp:hover{transform:scale(1.1)}
+.pl.on .pp{animation:pulse 1.6s infinite}
+.pbar{flex:1;height:8px;border-radius:9px;background:var(--ln);cursor:pointer;overflow:hidden}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:9px}
+.tm{font:.8rem monospace;color:var(--mut);min-width:34px;text-align:right}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:12px}
+.gal div{aspect-ratio:1;background-size:cover;background-position:center;border-radius:14px;cursor:zoom-in;position:relative;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.gal div:hover{transform:scale(1.05);box-shadow:0 12px 28px #0006;z-index:1}
+.gal button{position:absolute;top:6px;right:6px;border:0;border-radius:50%;width:26px;height:26px;background:#000a;color:#fff;cursor:pointer}.gal button.st{right:auto;left:6px}
+.fresh .prof>div:first-child{animation:rise .9s cubic-bezier(.2,.8,.2,1) backwards}
+.fresh .prof>div:last-child>*{animation:rise .8s cubic-bezier(.2,.8,.2,1) backwards}
+.fresh .prof>div:last-child>:nth-child(2){animation-delay:.08s}.fresh .prof>div:last-child>:nth-child(3){animation-delay:.16s}.fresh .prof>div:last-child>:nth-child(4){animation-delay:.24s}.fresh .prof>div:last-child>:nth-child(n+5){animation-delay:.32s}
+.fresh .gal div{animation:zoomin .6s .3s cubic-bezier(.2,.8,.2,1) backwards}
+.ed{display:none;background:var(--card);border:1px dashed var(--ac);border-radius:16px;padding:14px;margin:16px 0}.editing .ed{display:block;animation:fadein .5s}
+.ed input[type=text],.ed textarea{width:100%;margin:4px 0 10px;padding:8px 10px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:8px;font:inherit}
+.ed label{font-size:.85rem;color:var(--mut);display:block}
+.btn{background:var(--tx);color:var(--bg);border:0;border-radius:99px;padding:8px 16px;font-weight:700;cursor:pointer;margin:3px;transition:transform .2s,opacity .2s}.btn:hover{transform:translateY(-2px);opacity:.9}
+footer{text-align:center;padding:10px 0 90px;font-size:.8rem;color:var(--mut)}footer a{cursor:pointer;opacity:.6}footer a:hover{opacity:1}
+#bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--ln);text-align:center;z-index:25}
+#msg,#meter{font-size:.85rem;color:var(--mut);min-height:1.2em}
+#lb{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:30;cursor:zoom-out;animation:fadein .25s}
+#lb img{max-width:94vw;max-height:92vh;border-radius:10px;animation:zoomin .4s cubic-bezier(.2,.8,.2,1)}
+#dlg{position:fixed;inset:0;z-index:40;background:#000a;display:none;align-items:center;justify-content:center;padding:20px;animation:fadein .25s}#dform{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:24px;max-width:380px;width:100%;text-align:center;animation:zoomin .35s}#dform h3{margin:0 0 6px;font:700 1.3rem Georgia,serif}#dform p{color:var(--mut);margin:0 0 14px}#dpw{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);font:inherit;margin-bottom:14px}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--card);color:var(--tx);border:1px solid var(--ac);padding:10px 18px;border-radius:99px;z-index:50;display:none;max-width:90vw;text-align:center;font-size:.9rem}
+#v-bio{white-space:pre-line}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav id="top"><a class="brand" href="#"><svg viewBox="0 0 48 64" aria-hidden="true"><rect x="19" y="2" width="10" height="60" rx="2" fill="currentColor"/><rect x="4" y="17" width="40" height="10" rx="2" fill="currentColor"/><circle cx="24" cy="22" r="4" fill="var(--bg)"/></svg><span>Sanctuary Records</span></a><div class="themes"><small>Theme</small><span id="sws"></span><input type="color" id="cc" title="Custom accent colour" aria-label="Custom accent colour"></div></nav>
+<header class="hero"><svg class="mark" viewBox="0 0 48 64" aria-hidden="true"><rect x="19" y="2" width="10" height="60" rx="2" fill="currentColor"/><rect x="4" y="17" width="40" height="10" rx="2" fill="currentColor"/><circle cx="24" cy="22" r="4" fill="var(--bg)"/></svg><div class="eyebrow">Independent label · Five solo artists</div><h1>Five voices.<br>One sanctuary.</h1><p>Tap an artist to see their story, photos and a 30-second taste of their music.</p></header>
+<main id="app"></main>
+<footer>© Sanctuary Records · <a id="adm" role="button" tabindex="0">Admin login</a></footer>
+<div id="bar">
+<button class="btn" id="tog">Edit site</button><button class="btn" id="deft">Set theme as site default</button><button class="btn" id="pub">Publish to GitHub</button><button class="btn" id="exp">Export for GitHub</button><button class="btn" id="dis">Discard draft</button><button class="btn" id="lock">Lock</button>
+<div id="meter"></div>
+</div>
+<div id="toast"></div>
+<div id="dlg"><div id="dform"><h3 id="dt"></h3><p id="dm"></p><input type="password" id="dpw" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Password"><div><button class="btn" id="dok" type="button">OK</button><button class="btn" id="dno" type="button">Cancel</button></div></div></div>
+<div id="lb"><img alt=""></div>
+<script>
+const HASH="616ebbac54e64d189c44c127be080876ae5607a7234454e2efd4bc5bd20e29b1";
+const CAP=25*1024*1024;
+const COLORS=["#e0457b","#7a5cf0","#2e9b6a","#e08a2e","#2b8fd6"];
+const DEF=[["Nova Reyes","Indie Pop","Dreamy hooks for late-night drives","Nova writes glittering, confessional pop from her bedroom studio. Replace this text with her real story."],
+["Kai Mercer","R&B / Soul","Smooth, warm and wide open","Kai blends classic soul vocals with modern production. Replace this text with his real story."],
+["Juniper Lane","Folk","Quiet songs, big stories","Juniper pairs fingerpicked guitar with storytelling lyrics. Replace this text with her real story."],
+["Dex Okoro","Hip-Hop","Sharp bars, sharper beats","Dex brings razor-edge wordplay over punchy, sample-driven beats. Replace this text with his real story."],
+["Luna Vale","Electronic","Soundscapes for the after-hours","Luna crafts lush synth-led tracks that move between club and cinema. Replace this text with her real story."]
+].map((x,i)=>({id:"a"+(i+1),name:x[0],genre:x[1],tagline:x[2],bio:x[3],track:"Untitled snippet",photos:[],profile:"",audio:"",color:COLORS[i]}));
+let A=DEF,sizes={},files={},urls={},admin=false,editing=false,lastView=null,fresh=true;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const src=p=>files[p]?(urls[p]||(urls[p]=URL.createObjectURL(files[p]))):p;
+const mimeOf=n=>({m4a:"audio/mp4",mp3:"audio/mpeg",wav:"audio/wav",aac:"audio/aac",ogg:"audio/ogg"})[String(n).split(".").pop().toLowerCase()]||null;
+const toData=(b,t)=>new Promise(ok=>{const r=new FileReader();r.onload=()=>ok(t?r.result.replace(/^data:[^;,]*/,"data:"+t):r.result);r.onerror=()=>ok(null);r.readAsDataURL(b)});
+async function prep(){for(const n in files){if(!urls[n]||urls[n].startsWith("blob:")){const d=await toData(files[n],mimeOf(n));if(d)urls[n]=d}}}
+const pic=a=>a.profile||a.photos[0];
+const cover=a=>pic(a)?`<div class="cover" style="background-image:url('${src(pic(a))}')"></div>`:`<div class="cover ph" style="background:linear-gradient(145deg,var(--ac),var(--ac2))">${esc(a.name[0]||"?")}</div>`;
+const total=()=>Object.values(sizes).reduce((s,n)=>s+n,0);
+function sha256js(b){const mw=2**32,pr=[];for(let c=2;pr.length<64;c++)if(pr.every(p=>c%p))pr.push(c);
+const K=pr.map(p=>Math.floor((Math.cbrt(p)%1)*mw)),H=pr.slice(0,8).map(p=>Math.floor((Math.sqrt(p)%1)*mw));
+const l=b.length,n=((l+9+63)>>6)<<6,w=new Uint8Array(n);w.set(b);w[l]=128;const dv=new DataView(w.buffer);dv.setUint32(n-8,Math.floor(l*8/mw));dv.setUint32(n-4,(l*8)>>>0);
+const rr=(x,k)=>(x>>>k)|(x<<(32-k));
+for(let o=0;o<n;o+=64){const W=new Array(64);for(let i=0;i<16;i++)W[i]=dv.getUint32(o+i*4);
+for(let i=16;i<64;i++){const a=W[i-15],c=W[i-2];W[i]=(W[i-16]+(rr(a,7)^rr(a,18)^(a>>>3))+W[i-7]+(rr(c,17)^rr(c,19)^(c>>>10)))>>>0}
+let[a,b2,c,d,e,f,g,h]=H;
+for(let i=0;i<64;i++){const t1=(h+(rr(e,6)^rr(e,11)^rr(e,25))+((e&f)^(~e&g))+K[i]+W[i])>>>0,t2=((rr(a,2)^rr(a,13)^rr(a,22))+((a&b2)^(a&c)^(b2&c)))>>>0;h=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b2;b2=a;a=(t1+t2)>>>0}
+[a,b2,c,d,e,f,g,h].forEach((v,i)=>H[i]=(H[i]+v)>>>0)}
+return H.map(v=>v.toString(16).padStart(8,"0")).join("")}
+const sha=async t=>{const d=new TextEncoder().encode("sanctuary-records:"+t);try{if(window.crypto&&crypto.subtle)return[...new Uint8Array(await crypto.subtle.digest("SHA-256",d))].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){}return sha256js(d)};
+function ask(o){return new Promise(ok=>{const d=$("#dlg"),i=$("#dpw");$("#dt").textContent=o.t;$("#dm").textContent=o.m;i.style.display=o.input?"block":"none";i.type=o.type||"password";i.value=o.val||"";$("#dok").textContent=o.ok||"OK";$("#dno").style.display=o.nc?"none":"inline-block";d.style.display="flex";if(o.input)setTimeout(()=>i.focus(),50);
+const end=v=>{d.style.display="none";$("#dok").onclick=null;$("#dno").onclick=null;i.onkeydown=null;ok(v)};
+$("#dok").onclick=()=>end(o.input?i.value:true);i.onkeydown=e=>{if(e.key==="Enter")end(i.value)};$("#dno").onclick=()=>end(null)})}
+/* local draft storage (admin browser only) */
+const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open("sanctuary",1);r.onupgradeneeded=()=>r.result.createObjectStore("s");r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+async function draftGet(){try{const d=await idb();return await new Promise(ok=>{const q=d.transaction("s").objectStore("s").get("draft");q.onsuccess=()=>ok(q.result);q.onerror=()=>ok(null)})}catch(e){return null}}
+async function draftSet(v){try{const d=await idb();return await new Promise(ok=>{const t=d.transaction("s","readwrite");v?t.objectStore("s").put(v,"draft"):t.objectStore("s").delete("draft");t.oncomplete=()=>ok(true);t.onerror=()=>ok(false);t.onabort=()=>ok(false)})}catch(e){return false}}
+const TXT=["name","genre","tagline","bio","track"];
+const saveDraft=async(quiet)=>{if(!quiet)dirty=true;const T=Date.now();let ok=false;try{ok=await draftSet({A,sizes,files,theme:siteTheme,t:T})}catch(e){}idbOK=ok;
+try{localStorage.setItem("srtext",JSON.stringify({A:A.map(a=>{const o={id:a.id};TXT.forEach(k=>o[k]=a[k]);return o}),theme:siteTheme,t:T}));ok=true}catch(e){}return ok};
+/* theme */
+const PRE={midnight:["Midnight","#0b0b12","#e0457b"],gold:["Gold","#0e0c08","#d9a441"],ocean:["Ocean","#07121a","#2bb3d6"],forest:["Forest","#08120d","#3ec486"],ivory:["Ivory","#f7f3ec","#b8452f"]};
+let cur={p:"midnight"},siteTheme=null,mine=false;
+function applyTheme(t,save){cur=t;const r=document.documentElement;r.dataset.theme=t.p;r.style.removeProperty("--ac");r.style.removeProperty("--ac2");
+if(t.ac){r.style.setProperty("--ac",t.ac);r.style.setProperty("--ac2","color-mix(in srgb,"+t.ac+" 55%,#000)")}
+document.querySelectorAll(".sw").forEach(b=>b.classList.toggle("on",!t.ac&&b.dataset.p===t.p));
+$("#cc").value=t.ac||PRE[t.p][2];
+if(save){mine=true;try{localStorage.setItem("srtheme",JSON.stringify(t))}catch(e){}}}
+$("#sws").innerHTML=Object.entries(PRE).map(([k,v])=>`<button class="sw" data-p="${k}" title="${v[0]}" style="background:linear-gradient(135deg,${v[1]} 50%,${v[2]} 50%);box-shadow:0 0 0 1px #8885"></button>`).join("");
+document.querySelectorAll(".sw").forEach(b=>b.onclick=()=>applyTheme({p:b.dataset.p},true));
+$("#cc").oninput=e=>applyTheme({p:cur.p,ac:e.target.value},true);
+function initTheme(){if(!mine)applyTheme(siteTheme&&PRE[siteTheme.p]?siteTheme:{p:"midnight"})}
+try{const t=JSON.parse(localStorage.getItem("srtheme"));if(t&&PRE[t.p])applyTheme(t,true)}catch(e){}
+/* views */
+let stopWA=()=>{};
+function wirePlayer(name){const pl=$(".pl");if(!pl)return;
+const au=pl.querySelector("audio"),bt=pl.querySelector(".pp"),br=pl.querySelector(".pbar"),tm=pl.querySelector(".tm");
+const fm=t=>Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0");
+const show=(c,d)=>{br.firstChild.style.width=Math.min(100,c/(d||30)*100)+"%";tm.textContent=fm(c)};
+const on=v=>{pl.classList.toggle("on",v);bt.textContent=v?"❚❚":"▶"};
+let wa=null,bad=0;
+const fail=()=>{if(bad++)return;pl.insertAdjacentHTML("afterend",'<div style="color:var(--mut);font-size:.85rem;margin-top:8px">This audio couldn’t be played. Try importing it again as .m4a or .mp3.</div>')};
+async function waPlay(from){
+if(!wa){const C=window.AudioContext||window.webkitAudioContext;if(!C)throw new Error("no audio");const ctx=new C();const raw=files[name]?await files[name].arrayBuffer():await(await fetch(name)).arrayBuffer();const buf=await new Promise((ok,no)=>{const q=ctx.decodeAudioData(raw,ok,no);if(q&&q.catch)q.catch(no)});wa={ctx,buf,off:0,src:null,t0:0,playing:false}}
+if(wa.playing){wa.playing=false;try{wa.src.stop()}catch(e){}}
+if(wa.ctx.state==="suspended")await wa.ctx.resume();
+if(from!==undefined)wa.off=from;if(wa.off>=wa.buf.duration-.05)wa.off=0;
+const s=wa.ctx.createBufferSource();s.buffer=wa.buf;s.connect(wa.ctx.destination);s.start(0,wa.off);wa.src=s;wa.t0=wa.ctx.currentTime;wa.playing=true;on(true);
+s.onended=()=>{if(wa.src===s&&wa.playing){wa.playing=false;wa.off=0;on(false);show(0,wa.buf.duration)}};
+const tick=()=>{if(wa.playing&&wa.src===s){show(wa.off+wa.ctx.currentTime-wa.t0,wa.buf.duration);requestAnimationFrame(tick)}};tick()}
+const waPause=()=>{if(wa&&wa.playing){wa.off+=wa.ctx.currentTime-wa.t0;wa.playing=false;try{wa.src.stop()}catch(e){}on(false)}};
+stopWA=waPause;
+bt.onclick=async()=>{
+if(wa){if(wa.playing)waPause();else try{await waPlay()}catch(e){fail()}return}
+if(!au.paused){au.pause();return}
+document.querySelectorAll("audio").forEach(x=>x.pause());
+try{await Promise.race([au.play(),new Promise((_,no)=>setTimeout(()=>no(new Error("timeout")),3000))])}catch(e){au.pause();try{await waPlay()}catch(x){fail()}}};
+au.onplay=()=>on(true);au.onpause=()=>{if(!wa)on(false)};
+au.ontimeupdate=()=>show(au.currentTime,au.duration);au.onended=()=>{on(false);show(0,au.duration)};
+br.onclick=async e=>{const r=br.getBoundingClientRect(),fr=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+if(wa){const d=wa.buf.duration;if(wa.playing)await waPlay(fr*d);else{wa.off=fr*d;show(wa.off,d)}}else if(au.duration)au.currentTime=fr*au.duration}}
+function route(){document.querySelectorAll("audio").forEach(x=>x.pause());stopWA();const h=location.hash.slice(1);if(h!==lastView){if(admin)saveDraft(1);lastView=h;fresh=true;scrollTo({top:0,behavior:"smooth"})}
+const a=A.find(x=>"artist-"+x.id.slice(1)===h);a?profile(a):home();meter()}
+function home(){const app=$("#app");app.classList.toggle("editing",editing);app.classList.toggle("fresh",fresh);fresh=false;
+app.innerHTML=`${editing?`<p style="text-align:center;color:var(--mut)">Edit mode: open an artist to change their name, genre, profile image, photos and snippet.</p>`:""}<div class="sec">The roster</div><div class="grid">${A.map((a,i)=>`<div class="card" style="--i:${i}" data-id="${a.id}"><span class="num">0${i+1}</span><span class="go">↗</span>${cover(a)}<div class="cb"><span class="pill">${esc(a.genre)}</span><h3>${esc(a.name)}</h3></div></div>`).join("")}</div>`;
+document.querySelectorAll(".card").forEach(c=>c.onclick=()=>{location.hash="artist-"+c.dataset.id.slice(1)})}
+function profile(a){const app=$("#app");app.classList.toggle("editing",editing);app.classList.toggle("fresh",fresh);fresh=false;
+app.innerHTML=`${pic(a)?`<div class="pback" style="background-image:url('${src(pic(a))}')"></div>`:""}<button class="back">← All artists</button>
+<div class="prof"><div>${cover(a)}</div><div>
+<span class="pill" id="v-genre">${esc(a.genre)}</span>
+<h2 id="v-name">${esc(a.name)}</h2><p class="tl" id="v-tagline">${esc(a.tagline)}</p><p id="v-bio">${esc(a.bio)}</p>
+<div class="snip"><b>♪ <span id="v-track">${esc(a.track)}</span> <span style="color:var(--mut);font-weight:400">· 30-second snippet</span></b>${a.audio?`<div class="pl"><button class="pp" aria-label="Play">▶</button><div class="pbar"><i></i></div><span class="tm">0:00</span><audio preload="none" src="${src(a.audio)}"></audio></div>`:`<span style="color:var(--mut)">No snippet yet.</span>`}</div>
+<div class="ed"><b>Edit profile</b>
+<label>Artist name<input type="text" id="f-name" value="${esc(a.name)}"></label>
+<label>Genre<input type="text" id="f-genre" value="${esc(a.genre)}"></label>
+<label>Tagline<input type="text" id="f-tagline" value="${esc(a.tagline)}"></label>
+<label>Biography<textarea id="f-bio" rows="4">${esc(a.bio)}</textarea></label>
+<label>Song title<input type="text" id="f-track" value="${esc(a.track)}"></label>
+<button class="btn" id="save">Save now</button>
+<label>Profile image (compressed automatically)<input type="file" id="f-profile" accept="image/*"></label>
+<label>Photos (as many as you like — compressed automatically)<input type="file" id="f-photos" accept="image/*" multiple></label>
+<label>30-second snippet (.m4a)<input type="file" id="f-audio" accept=".m4a,audio/*"></label>
+<div id="msg"></div></div>
+<b>Gallery</b><div class="gal">${a.photos.map((p,i)=>`<div style="background-image:url('${src(p)}')" data-src="${src(p)}">${editing?`<button class="st" data-p="${i}" title="Use as profile image">★</button><button data-i="${i}" title="Remove">×</button>`:""}</div>`).join("")||`<span style="color:var(--mut)">No photos yet.</span>`}</div>
+</div></div>`;
+$(".back").onclick=()=>{location.hash=""};
+document.querySelectorAll(".gal div[data-src]").forEach(d=>d.onclick=e=>{if(e.target.tagName==="BUTTON")return;$("#lb img").src=d.dataset.src;$("#lb").style.display="flex"});
+wirePlayer(a.audio);
+if(!admin)return;
+const msg=t=>{const m=$("#msg");if(m)m.textContent=t};
+const drop=n=>{if(n&&n!==a.profile&&!a.photos.includes(n)&&n!==a.audio){delete files[n];delete sizes[n]}};
+const done=async()=>{await saveDraft();profile(a);meter()};
+const add=async(blob,name,kind)=>{const lim=kind==="photo"?CAP-reserve():CAP;if(total()+blob.size+60000>lim){note(kind==="photo"?"The gallery is full for now. The 25 MB limit keeps room for every artist’s profile image and audio snippet ("+bd()+"). Remove some photos to add more.":"Not saved: the 25 MB limit is full ("+bd()+"). Remove some gallery photos first.",1);return null}files[name]=blob;sizes[name]=blob.size;const d=await toData(blob,mimeOf(name));if(d)urls[name]=d;return name};
+const nm=ext=>`media/${a.id}-${Date.now().toString(36)}${Math.random().toString(36).slice(2,5)}.${ext}`;
+document.querySelectorAll(".gal button").forEach(b=>b.onclick=async()=>{if(b.dataset.p!==undefined){const old=a.profile;a.profile=a.photos[+b.dataset.p];drop(old)}else{const rm=a.photos.splice(+b.dataset.i,1)[0];if(a.profile===rm)a.profile="";drop(rm)}await done()});
+$("#save").onclick=async()=>{for(const k of TXT){a[k]=$("#f-"+k).value;const e=$("#v-"+k);if(e)e.textContent=a[k]}msg(await saveDraft()?"Saved ✓ Press Export for GitHub to put it on your live site.":"⚠ This browser blocked saving. Press Export for GitHub now.")};
+let tmr;const FS=["name","genre","tagline","bio","track"];
+const upd=()=>{if(!$("#f-name"))return;for(const k of FS){const v=$("#f-"+k).value;a[k]=v;const e=$("#v-"+k);if(e)e.textContent=v}};
+const flush=async()=>{upd();const ok=await saveDraft();msg(ok?"Saved ✓ in this browser. Press Export for GitHub to put it on your live site.":"⚠ This browser blocked saving. Press Export for GitHub now so you don't lose your edits.")};
+FS.forEach(k=>{const el=$("#f-"+k);el.oninput=()=>{upd();msg("Saving…");clearTimeout(tmr);tmr=setTimeout(flush,350)};el.onchange=flush;el.onblur=flush});
+$("#f-profile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{msg("Compressing…");const n=await add(await compress(f),nm("jpg"),"profile");if(!n)return;const old=a.profile;a.profile=n;drop(old);await done();note(idbOK?"✓ Profile image saved for "+a.name+".":"⚠ Added for now, but this browser can’t keep it after you close the page. Press Publish to GitHub.",!idbOK)}catch(x){note("Not saved: that image couldn’t be read. Try a JPEG or PNG.",1)}};
+$("#f-photos").onchange=async e=>{const fs=[...e.target.files];let i=0,cap=0;try{for(const f of fs){msg(`Compressing photo ${++i} of ${fs.length}…`);const n=await add(await compress(f),nm("jpg"),"photo");if(!n){cap=1;break}a.photos.push(n)}await done();if(cap)msg("Stopped: the gallery is full. Remove some photos first.");else note(idbOK?"✓ Photos saved for "+a.name+".":"⚠ Added for now, but this browser can’t keep them after you close the page. Press Publish to GitHub.",!idbOK)}catch(x){await done();msg("One photo could not be read (try a JPEG or PNG).")}};
+$("#f-audio").onchange=async e=>{const f=e.target.files[0];if(!f)return;const old=a.audio;const ext=((f.name.split(".").pop()||"m4a").toLowerCase().replace(/[^a-z0-9]/g,""))||"m4a";const n=await add(new Blob([f],{type:mimeOf("x."+ext)||f.type}),nm(ext),"audio");if(!n)return;a.audio=n;drop(old);await done();note(idbOK?"✓ Audio snippet saved for "+a.name+" ("+(f.size/1048576).toFixed(1)+" MB).":"⚠ Added for now, but this browser can’t keep it after you close the page. Press Publish to GitHub.",!idbOK)};
+}
+async function compress(f){const bmp=await createImageBitmap(f);let max=1600,q=.8,out;
+for(let i=0;i<6;i++){const s=Math.min(1,max/Math.max(bmp.width,bmp.height));const cv=document.createElement("canvas");cv.width=Math.round(bmp.width*s);cv.height=Math.round(bmp.height*s);const x=cv.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,cv.width,cv.height);x.drawImage(bmp,0,0,cv.width,cv.height);out=await new Promise(r=>cv.toBlob(r,"image/jpeg",q));if(out.size<=350*1024)break;q=Math.max(.5,q-.1);max=Math.round(max*.85)}return out||f}
+function meter(){const el=$("#meter");if(!el)return;const u=total();el.textContent=`Media size: ${(u/1048576).toFixed(1)} MB of 25 MB used`+(dirty?" · ⚠ Unpublished changes: press Publish to GitHub":"")+(idbOK?"":" · ⚠ This view can’t keep photos or audio after a refresh. Open the file in a normal browser tab, or press Publish to GitHub before closing.");el.style.color=u>CAP*.9?"#e0457b":""}
+/* admin */
+function showBar(){$("#bar").style.display=admin?"block":"none";$("#tog").textContent=editing?"Done editing":"Edit site"}
+async function unlock(){admin=true;const d=await draftGet();if(d){A=d.A;sizes=d.sizes;files=d.files;urls={};dirty=true;if(d.theme)siteTheme=d.theme;await prep()}
+idbOK=await draftSet(d||{A,sizes,files,theme:siteTheme,t:Date.now()});
+try{const t=JSON.parse(localStorage.getItem("srtext"));if(t&&t.A&&(!d||t.t>(d.t||0))){t.A.forEach(x=>{const a=A.find(y=>y.id===x.id);if(a)TXT.forEach(k=>{if(x[k]!==undefined)a[k]=x[k]})});if(t.theme)siteTheme=t.theme}}catch(e){}showBar();route()}
+$("#adm").onclick=async()=>{let msg="Enter your admin password.";for(;;){const p=await ask({t:"Admin login",m:msg,input:1,ok:"Unlock"});if(p===null)return;if(await sha(p.trim())===HASH){try{sessionStorage.setItem("sr","1")}catch(e){}unlock();return}msg="Wrong password — try again."}};
+$("#deft").onclick=async()=>{siteTheme={...cur};await saveDraft();ask({t:"Saved",m:"Saved as the site default. Press Export for GitHub and upload data.json to make it live for everyone.",ok:"Got it",nc:1})};
+$("#tog").onclick=()=>{editing=!editing;showBar();route()};
+$("#lock").onclick=()=>{try{sessionStorage.removeItem("sr")}catch(e){}location.reload()};
+$("#dis").onclick=async()=>{if(await ask({t:"Discard draft?",m:"This removes all unsaved edits and goes back to the live site.",ok:"Discard"})){await draftSet(null);location.reload()}};
+let live=new Set(),dirty=false,idbOK=true,noteT;
+const note=(t,bad)=>{const e=$("#toast");e.textContent=t;e.style.display="block";e.style.borderColor=bad?"#e0457b":"var(--ac)";clearTimeout(noteT);noteT=setTimeout(()=>{e.style.display="none"},bad?9000:4500)};
+const reserve=()=>A.reduce((s,a)=>s+(a.audio?0:1048576)+(a.profile?0:307200),0);
+const bd=()=>{let ph=0,au=0,pr=0;A.forEach(a=>{a.photos.forEach(n=>ph+=sizes[n]||0);pr+=sizes[a.profile]||0;au+=sizes[a.audio]||0});const m=x=>(x/1048576).toFixed(1);return m(ph)+" MB gallery photos, "+m(pr)+" MB profile images, "+m(au)+" MB audio"};
+const toast=t=>{const e=$("#toast");e.textContent=t;e.style.display=t?"block":"none"};
+const GH=()=>{try{return JSON.parse(localStorage.getItem("srgh"))}catch(e){return null}};
+async function ghCfg(){let c=GH();if(c&&c.repo&&c.token)return c;
+const repo=await ask({t:"Publish to GitHub (1/3)",m:"Your repository, written as owner/name (for example janedoe/sanctuary-records).",input:1,type:"text",val:c&&c.repo||"",ok:"Next"});if(!repo)return null;
+const branch=await ask({t:"Publish to GitHub (2/3)",m:"The branch GitHub Pages serves (usually main).",input:1,type:"text",val:c&&c.branch||"main",ok:"Next"});if(!branch)return null;
+const token=await ask({t:"Publish to GitHub (3/3)",m:"A fine-grained access token for this one repo with Contents: Read and write. It is stored only in this browser.",input:1,ok:"Save"});if(!token)return null;
+c={repo:repo.trim(),branch:branch.trim()||"main",token:token.trim()};try{localStorage.setItem("srgh",JSON.stringify(c))}catch(e){}return c}
+const ghUrl=(c,path)=>"https://api.github.com/repos/"+c.repo+"/contents/"+path.split("/").map(encodeURIComponent).join("/");
+const ghH=c=>({Authorization:"Bearer "+c.token,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
+const ghQ=c=>"?ref="+encodeURIComponent(c.branch)+"&_="+Date.now();
+async function ghExists(c,path){try{return(await fetch(ghUrl(c,path)+ghQ(c),{headers:ghH(c),cache:"no-store"})).ok}catch(e){return false}}
+async function ghPut(c,path,b64,msg){const url=ghUrl(c,path),H=ghH(c);
+for(let t=0;t<4;t++){let sha;const g=await fetch(url+ghQ(c),{headers:H,cache:"no-store"});
+if(g.ok)sha=(await g.json()).sha;else if(g.status!==404)throw new Error("GitHub said "+g.status+(g.status===401?" (token not accepted)":g.status===403?" (token lacks permission)":""));
+const r=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify({message:msg,content:b64,branch:c.branch,...(sha?{sha}:{})})});
+if(r.ok)return;
+if((r.status===409||r.status===422)&&t<3){await new Promise(z=>setTimeout(z,800*(t+1)));continue}
+throw new Error("GitHub said "+r.status+(r.status===404?" (check the repo name and token access)":r.status===422?" (branch or file problem)":""))}}
+const lab=n=>{for(const a of A){if(a.profile===n)return a.name+" (profile image)";if(a.audio===n)return a.name+" (audio snippet)";if(a.photos.includes(n))return a.name+" (gallery photo)"}return n};
+$("#pub").onclick=async()=>{const c=await ghCfg();if(!c)return;
+try{await saveDraft(1);const used=new Set();A.forEach(a=>[a.profile,a.audio,...a.photos].forEach(n=>n&&used.add(n)));
+toast("Checking your files…");const gone=[];
+for(const n of used)if(!files[n]&&!live.has(n)&&!(await ghExists(c,n)))gone.push(lab(n));
+if(gone.length){toast("");ask({t:"Some files are missing",m:"These aren’t in this browser or on GitHub, so nothing was published: "+gone.join(", ")+". Import them again, then press Publish.",ok:"OK",nc:1});return}
+const todo=[...used].filter(n=>files[n]&&!live.has(n));let i=0;
+for(const n of todo){toast("Uploading file "+(++i)+" of "+todo.length+"…");const d=await toData(files[n]);await ghPut(c,n,d.split(",")[1],"Add "+n)}
+toast("Publishing site content…");const keep={};used.forEach(n=>{if(sizes[n]!==undefined)keep[n]=sizes[n]});
+await ghPut(c,"data.json",btoa(unescape(encodeURIComponent(JSON.stringify({artists:A,sizes:keep,theme:siteTheme},null,1)))),"Update site content");
+toast("Verifying on GitHub…");const bad=[];let k=0;
+for(const n of used){if(!(await ghExists(c,n)))bad.push(lab(n));else live.add(n)}
+toast("");
+const pr=A.filter(a=>a.profile).length,au=A.filter(a=>a.audio).length,ph=A.reduce((s,a)=>s+a.photos.length,0);
+if(bad.length){ask({t:"Published, but some files are missing",m:"Not found on GitHub: "+bad.join(", ")+". Press Publish again to retry.",ok:"OK",nc:1})}
+else{dirty=false;meter();ask({t:"Published ✓",m:"Verified on GitHub: "+A.length+" artists, "+pr+" profile images, "+au+" audio snippets and "+ph+" gallery photos. The live site updates in about a minute, then do a hard refresh.",ok:"Got it",nc:1})}}
+catch(e){toast("");if(/401|403|404/.test(e.message))try{localStorage.removeItem("srgh")}catch(x){}
+ask({t:"Couldn't publish",m:e instanceof TypeError?"Couldn’t reach GitHub from this view. A preview inside another app may block it. Open the file in a normal browser tab (Chrome, Safari or Firefox) and publish from there.":String(e.message||e)+". Check the repository name and token, then try again.",ok:"OK",nc:1})}};
+$("#exp").onclick=async()=>{try{
+if(!window.JSZip)await new Promise((ok,no)=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+const z=new JSZip(),used=new Set();A.forEach(a=>[a.profile,a.audio,...a.photos].forEach(n=>n&&used.add(n)));
+const keep={};used.forEach(n=>{if(sizes[n]!==undefined)keep[n]=sizes[n]});
+z.file("data.json",JSON.stringify({artists:A,sizes:keep,theme:siteTheme},null,1));
+used.forEach(n=>{if(files[n])z.file(n,files[n])});
+const out=await z.generateAsync({type:"blob"});const l=document.createElement("a");l.href=URL.createObjectURL(out);l.download="sanctuary-update.zip";l.click();
+ask({t:"Export ready",m:"Downloaded sanctuary-update.zip. Unzip it and upload data.json and the media folder to your GitHub repo, next to index.html.",ok:"Got it",nc:1})}catch(e){ask({t:"Export failed",m:"Check your internet connection — the export loads a zip library.",ok:"OK",nc:1})}};
+$("#lb").onclick=()=>{$("#lb").style.display="none"};
+addEventListener("hashchange",route);addEventListener("pagehide",()=>{if(admin)saveDraft(1)});document.addEventListener("visibilitychange",()=>{if(document.hidden&&admin)saveDraft(1)});
+(async()=>{try{const r=await fetch("data.json",{cache:"no-cache"});if(r.ok){const d=await r.json();if(d.artists){A=d.artists;sizes=d.sizes||{};live=new Set(Object.keys(d.sizes||{}));if(d.theme)siteTheme=d.theme}}}catch(e){}
+let s=null;try{s=sessionStorage.getItem("sr")}catch(e){}
+initTheme();if(s)await unlock();else route()})();
+</script>
+</body>
+</html>
